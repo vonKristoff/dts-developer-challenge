@@ -19,6 +19,8 @@ I was not previously familiar with the Design/Component system - but did my best
 - **API Documentation:** OpenAPI/Swagger UI
 - **Testing:** Unit tests for utilities and routes
 
+## Installation and development runtime
+
 ### Backend
 > prerequsiste - You will need Docker installed.
 
