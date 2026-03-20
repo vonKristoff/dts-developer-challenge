@@ -1,0 +1,14 @@
+.git
+.gradle
+build
+src/test
+src/smokeTest
+src/integrationTest
+src/functionalTest
+.gradle
+gradle
+gradlew
+gradlew.bat
+*.md
+.env
+config/owasp

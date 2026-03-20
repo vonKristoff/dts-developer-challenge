@@ -1,0 +1,131 @@
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% extends "template.njk" %}
+
+{% block content %}
+  <header>
+    <h1 class="govuk-heading-xl">All Tasks</h1>
+  </header>
+
+  {% if tasks and tasks.length %}
+
+    {% for task in tasks %}
+
+      <div aria-labelledby="task-{{ task.id }}-title">
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "ID"
+              },
+              value: {
+                text: task.id
+              },
+              actions: {
+                items: [
+
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Title"
+              },
+              value: {
+                html: task.title
+              },
+              actions: {
+                items: [
+                  {
+                    href: "/tasks/" + task.id + "/edit",
+                    text: "Change",
+                    visuallyHiddenText: "change task title"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Description"
+              },
+              value: {
+                html: task.description
+              },
+              actions: {
+                items: [
+                  {
+                    href: "/tasks/" + task.id + "/edit",
+                    text: "Change",
+                    visuallyHiddenText: "Change task"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Status"
+              },
+              value: {
+                html: task.status
+              },
+              actions: {
+                items: [
+                  {
+                    href: "/tasks/" + task.id + "/edit",
+                    text: "Change",
+                    visuallyHiddenText: "Change task"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Due Date"
+              },
+              value: {
+                html: task.dueDate or "No due date"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "/tasks/" + task.id + "/edit",
+                    text: "Change",
+                    visuallyHiddenText: "Change due date"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+               text: "Created Date"
+              },
+              value: {
+               html: task.createdDate
+              },
+              actions: {
+               items: [
+               ]
+              }
+            }
+          ]
+        }) }}
+
+        <div style="margin-bottom: 30px; text-align: right;">
+          <form method="post" action="/tasks/{{ task.id }}/delete" aria-label="Delete task {{ task.id }}" style="display: inline;">
+            <button type="submit" class="govuk-button govuk-button--warning" aria-label="Delete task titled {{ task.title }}">Delete Task</button>
+          </form>
+        </div>
+      </div>
+
+    {% endfor %}
+
+  {% else %}
+    <p class="govuk-body" aria-live="polite">No tasks found.</p>
+  {% endif %}
+
+  <div style="margin-top: 30px;">
+    <a href="/" class="govuk-link" aria-label="Return to task dashboard">Back to Dashboard</a>
+  </div>
+
+{% endblock %}
