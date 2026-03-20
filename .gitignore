@@ -1,0 +1,69 @@
+# ============================
+# Java / Spring Boot
+# ============================
+build/
+.gradle/
+*.class
+*.jar
+*.war
+*.ear
+*.logs
+*.log
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# ============================
+# Node.js / Frontend
+# ============================
+node_modules/
+.yarn/
+.pnp.*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.yarnrc.yml
+package-lock.json
+
+# Build outputs
+dist/
+out/
+webpack-stats.json
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ESLint
+.eslintcache
+
+# Prettier
+.prettiercache
+
+# ============================
+# Database & Data
+# ============================
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
