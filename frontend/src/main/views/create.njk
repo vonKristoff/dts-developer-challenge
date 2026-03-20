@@ -1,0 +1,83 @@
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+{% extends "template.njk" %}
+
+{% block content %}
+  <h1 class="govuk-heading-xl">Create New Task</h1>
+
+  <form method="post" action="/tasks/new" aria-label="Create new task form">
+    
+    {{ govukInput({
+      id: "title",
+      name: "title",
+      label: {
+        text: "Title"
+      },
+      value: task.title or "",
+      errorMessage: errors.title,
+      attributes: {
+        "aria-required": "true"
+      }
+    }) }}
+
+    {{ govukInput({
+      id: "description",
+      name: "description",
+      label: {
+        text: "Description"
+      },
+      value: task.description or "",
+      attributes: {
+        "aria-required": "false"
+      }
+    }) }}
+
+    {{ govukDateInput({
+      id: "dueDate",
+      name: "dueDate",
+      fieldset: {
+        legend: {
+          text: "Due Date"
+        }
+      },
+      hint: {
+        text: "For example, " + todayDisplay
+      },
+      errorMessage: errors.dueDate,
+      items: [
+        { name: "dueDate-day", classes: "govuk-input--width-2" + (" govuk-input--error" if errors.dueDate else ""), label: "Day", value: dueDateDay or "" },
+        { name: "dueDate-month", classes: "govuk-input--width-2" + (" govuk-input--error" if errors.dueDate else ""), label: "Month", value: dueDateMonth or "" },
+        { name: "dueDate-year", classes: "govuk-input--width-4" + (" govuk-input--error" if errors.dueDate else ""), label: "Year", value: dueDateYear or "" }
+      ]
+    }) }}
+
+    {{ govukSelect({
+      id: "status",
+      name: "status",
+      label: {
+        text: "Status"
+      },
+      attributes: {
+        "aria-required": "true"
+      },
+      items: [
+        { value: "Open", text: "Open" },
+        { value: "In Progress", text: "In Progress" },
+        { value: "Completed", text: "Completed" }
+      ]
+    }) }}
+
+    {{ govukButton({
+      text: "Create task",
+      attributes: {
+        "aria-label": "Submit and create task"
+      }
+    }) }}
+
+    <a href="/" class="govuk-link" aria-label="Cancel and return to dashboard">Cancel</a>
+  </form>
+
+{% endblock %}
