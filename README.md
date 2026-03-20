@@ -21,8 +21,8 @@ I was not previously familiar with the Design/Component system - but did my best
 
 ### Backend
 > prerequsiste - You will need Docker installed.
-(from `/backend`)
 
+(from `/backend`)
 * First run `docker compose up --build`
 * Thereafter `docker compose up`
 
@@ -32,8 +32,8 @@ API will be exposed on port `4000`
 I used a SQLite database, and exposed the mount volume to `/data` for persistance and visibility.
 
 ### Frontend
-(from `/frontend`)
 
+(from `/frontend`)
 * `yarn install`
 * `yarn webpack`
 * `yarn start:dev`
