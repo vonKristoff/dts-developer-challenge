@@ -24,7 +24,7 @@ I was not previously familiar with the Design/Component system - but did my best
 ### Backend
 > prerequsiste - You will need Docker installed.
 
-(from `/backend`)
+(from `/`)
 * First run `docker compose up --build`
 * Thereafter `docker compose up`
 
