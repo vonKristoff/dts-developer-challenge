@@ -33,7 +33,7 @@ API will be exposed on port `4000`
 
 I used a SQLite database, and exposed the mount volume to `/data` for persistance and visibility.
 
-### Frontend
+### Frontend `node@22.13`
 
 (from `/frontend`)
 * `yarn install`
