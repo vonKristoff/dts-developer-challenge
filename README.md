@@ -41,6 +41,7 @@ I used a SQLite database, and exposed the mount volume to `/data` for persistanc
 * `yarn start:dev`
 
 App will be exposed on port `3100`
+Please view in browser with `https://localhost:3100`
 
 For unit tests `yarn test:coverage`
 
